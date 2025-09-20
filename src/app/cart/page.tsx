@@ -59,9 +59,9 @@ export default function CartPage() {
                 <div className="flex items-center space-x-4">
                   <div className="relative w-20 h-20 flex-shrink-0">
                     <Image
-                      src={item.product.image || '/placeholder-product.png'}
+                      src={item.product.image || '/images/pencil.jpg'}
                       alt={item.product.name}
-                      fill
+                      fill={true}
                       className="object-cover rounded-md"
                     />
                   </div>

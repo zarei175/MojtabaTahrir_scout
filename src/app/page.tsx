@@ -10,7 +10,7 @@ export default async function Home() {
     .from('products')
     .select(`
       *,
-      category:categories(name, slug)
+      category:categories(name)
     `)
     .eq('in_stock', true)
     .order('created_at', { ascending: false })

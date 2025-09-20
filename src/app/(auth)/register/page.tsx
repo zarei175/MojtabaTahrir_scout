@@ -70,7 +70,12 @@ export default function RegisterPage() {
       })
 
       if (googleError) {
-        setError(googleError.message)
+        // Check if the error is related to an unsupported provider
+        if (googleError.message.includes('Unsupported provider') || googleError.message.includes('provider is not enabled')) {
+          setError('ثبت‌نام با گوگل در حال حاضر فعال نیست. لطفاً از ثبت‌نام با ایمیل استفاده کنید.')
+        } else {
+          setError(googleError.message)
+        }
       }
     } catch {
       setError('خطایی در ثبت‌نام با گوگل رخ داد')
@@ -101,7 +106,10 @@ export default function RegisterPage() {
               ثبت‌نام با موفقیت انجام شد
             </h3>
             <p className="mt-2 text-sm text-green-700 font-persian">
-              لطفاً ایمیل خود را بررسی کرده و به صفحه ورود هدایت می‌شوید...
+              یک ایمیل تأییدیه به آدرس {email} ارسال شده است. لطفاً ایمیل خود را بررسی کرده و پس از تأیید به صفحه ورود هدایت می‌شوید...
+            </p>
+            <p className="mt-2 text-xs text-gray-500 font-persian">
+              اگر ایمیل را دریافت نکرده‌اید، پوشه اسپم خود را نیز بررسی کنید.
             </p>
           </div>
         </div>

@@ -1,5 +1,5 @@
 // Test database connection and setup
-const { createClient } = require('@supabase/supabase-js');
+import { createClient } from '@supabase/supabase-js';
 
 const supabaseUrl = 'https://jpayhiklgvamdzbwzbar.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpwYXloaWtsZ3ZhbWR6Ynd6YmFyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTgyMjU5MjMsImV4cCI6MjA3MzgwMTkyM30.X5u4x3OZohXD9z81mCX8e9NO7mtwKfcqlOdrC6UJYAM';
@@ -11,7 +11,7 @@ async function setupCompleteDatabase() {
   
   try {
     // Check if database is already set up
-    const { data: existingCats, error: existingCatError } = await supabase
+    const { /*data: existingCats,*/ error: existingCatError } = await supabase
       .from('categories')
       .select('count');
 
@@ -22,7 +22,7 @@ async function setupCompleteDatabase() {
     }
 
     // Test connection by trying to access auth table
-    const { data: authData, error: authError } = await supabase.auth.getSession();
+    const { /*data: authData,*/ error: authError } = await supabase.auth.getSession();
     
     if (!authError) {
       console.log('✅ Auth service is accessible');
@@ -71,7 +71,7 @@ async function setupCompleteDatabase() {
         in_stock: true
       };
 
-      const { data: testProd, error: testProdError } = await supabase
+      const { /*data: testProd,*/ error: testProdError } = await supabase
         .from('products')
         .insert(testProduct)
         .select();
@@ -111,4 +111,4 @@ async function setupCompleteDatabase() {
 // Execute the setup
 setupCompleteDatabase();
 
-module.exports = { setupCompleteDatabase };
+export { setupCompleteDatabase };

@@ -3,7 +3,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
 import { createClient } from '@/lib/supabase-server'
-import { Product } from '@/types/database'
 
 interface ProductDetailPageProps {
   params: {
@@ -73,12 +72,12 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
           {/* Product Image */}
           <div className="relative aspect-square rounded-lg overflow-hidden bg-gray-100">
             <Image
-              src={product.image || '/placeholder-product.png'}
+              src={product.image || '/images/pencil.jpg'}
               alt={product.name}
-              fill
+              fill={true}
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
-              priority
+              priority={true}
             />
           </div>
 
@@ -140,9 +139,9 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
                 <div key={relatedProduct.id} className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                   <div className="relative aspect-square">
                     <Image
-                      src={relatedProduct.image || '/placeholder-product.png'}
+                      src={relatedProduct.image || '/images/pencil.jpg'}
                       alt={relatedProduct.name}
-                      fill
+                      fill={true}
                       className="object-cover"
                       sizes="(max-width: 768px) 100vw, 25vw"
                     />

@@ -25,7 +25,12 @@ export default function LoginPage() {
       })
 
       if (signInError) {
-        setError(signInError.message)
+        // Check if the error is related to email confirmation
+        if (signInError.message.includes('Email not confirmed')) {
+          setError('لطفاً ابتدا ایمیل خود را تأیید کنید. ایمیل تأییدیه به آدرس ' + email + ' ارسال شده است.')
+        } else {
+          setError(signInError.message)
+        }
       } else {
         router.push('/')
         router.refresh()
@@ -48,7 +53,12 @@ export default function LoginPage() {
       })
 
       if (googleError) {
-        setError(googleError.message)
+        // Check if the error is related to an unsupported provider
+        if (googleError.message.includes('Unsupported provider') || googleError.message.includes('provider is not enabled')) {
+          setError('ورود با گوگل در حال حاضر فعال نیست. لطفاً از ورود با ایمیل استفاده کنید.')
+        } else {
+          setError(googleError.message)
+        }
       }
     } catch {
       setError('خطایی در ورود با گوگل رخ داد')

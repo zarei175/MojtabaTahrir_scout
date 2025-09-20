@@ -1,6 +1,8 @@
-import Image from 'next/image'
+'use client'
+
 import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
+import { ProductImage } from '@/components/products/ProductImage'
 
 interface Product {
   id: string
@@ -22,9 +24,10 @@ export function ProductCard({ product, className }: ProductCardProps) {
   return (
     <div className={`bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow ${className}`}>
       <div className="relative aspect-square">
-        <Image
-          src={product.image}
+        <ProductImage
+          src={product.image || '/images/pencil.jpg'}
           alt={product.name}
+          category={product.category}
           fill
           className="object-cover"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

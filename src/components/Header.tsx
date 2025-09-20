@@ -53,12 +53,12 @@ export function Header() {
           <div className="flex items-center space-x-4">
             <CartIcon />
             
-            <Link href="/login">
-              <Button variant="outline" size="sm">
+            <Button asChild variant="outline" size="sm">
+              <Link href="/login">
                 <User className="h-4 w-4 ml-2" />
                 <span className="hidden sm:inline font-persian">ورود</span>
-              </Button>
-            </Link>
+              </Link>
+            </Button>
 
             {/* Mobile menu button */}
             <button
