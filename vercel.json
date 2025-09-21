@@ -20,6 +20,5 @@
   "framework": "nextjs",
   "outputDirectory": ".next",
   "buildCommand": "npm run build",
-  "installCommand": "npm install",
-  "regions": ["dubai", "mumbai"]
+  "installCommand": "npm install"
 }
