@@ -14,8 +14,8 @@
         }
     ],
     "env": {
-        "NEXT_PUBLIC_SUPABASE_URL": "@next_public_supabase_url",
-        "NEXT_PUBLIC_SUPABASE_ANON_KEY": "@next_public_supabase_anon_key"
+        "NEXT_PUBLIC_SUPABASE_URL": "https://jpayhiklgvamdzbwzbar.supabase.co",
+        "NEXT_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpwYXloaWtsZ3ZhbWR6Ynd6YmFyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTgyMjU5MjMsImV4cCI6MjA3MzgwMTkyM30.X5u4x3OZohXD9z81mCX8e9NO7mtwKfcqlOdrC6UJYAM"
     },
     "framework": "nextjs",
     "outputDirectory": ".next",
